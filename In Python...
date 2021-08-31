@@ -1,0 +1,52 @@
+# CRAMER’S RULE CALCULATOR for AC-Circuits in Python :
+
+
+import numpy as x
+import math
+aar_real=x.array([[23.66,-8.66,441.3],[-8.66,18.66,0]])                 
+aar_imag=x.array([[-5,5,254],[5,-5,-509.554]])
+print("----------------------------------")
+print("\tAugmented Matrix")
+print(aar_real)
+print("\r")
+print(aar_imag)
+print("----------------------------------")
+print("\t\tΔ")
+delta_real=x.array([[aar_real[0][0],aar_real[0][1]],[aar_real[1][0],aar_real[1][1]]])
+print(delta_real)
+print("\r")
+delta_imag=x.array([[aar_imag[0][0],aar_imag[0][1]],[aar_imag[1][0],aar_imag[1][1]]])
+print(delta_imag)
+print("\r")
+det_real = aar_real[0][0]*aar_real[1][1]  +  aar_imag[0][1]*aar_imag[1][0]  -  aar_real[0][1]*aar_real[1][0]  -  aar_imag[0][0]*aar_imag[1][1]
+det_imag = aar_real[0][0]*aar_imag[1][1]  +  aar_imag[0][0]*aar_real[1][1]  -  aar_imag[0][1]*aar_real[1][0]  -  aar_real[0][1]*aar_imag[1][0] 
+print(det_real,"+","j",det_imag,"is the determinant of the Δ Matrix.")
+print("Δ Mag : ",math.sqrt((det_imag)**2+(det_real)**2))
+print("Δ Phase : ",math.degrees(math.atan(det_imag/det_real)),"°")
+print("----------------------------------")
+print("\t\tΔ1")
+delta1_real=x.array([[aar_real[0][2],aar_real[0][1]],[aar_real[1][2],aar_real[1][1]]])
+print(delta1_real)
+print("\r")
+delta1_imag=x.array([[aar_imag[0][2],aar_imag[0][1]],[aar_imag[1][2],aar_imag[1][1]]])
+print(delta1_imag)
+print("\r")
+det_real = aar_real[0][2]*aar_real[1][1]  +  aar_imag[0][1]*aar_imag[1][2]  -  aar_real[0][1]*aar_real[1][2]  -  aar_imag[0][2]*aar_imag[1][1]
+det_imag = aar_real[0][2]*aar_imag[1][1]  +  aar_imag[0][2]*aar_real[1][1]  -  aar_imag[0][1]*aar_real[1][2]  -  aar_real[0][1]*aar_imag[1][2] 
+print(det_real,"+","j",det_imag,"is the determinant of the Δ1 Matrix.")
+print("Δ1 Mag : ",math.sqrt((det_imag)**2+(det_real)**2))
+print("Δ1 Phase : ",math.degrees(math.atan(det_imag/det_real)),"°")
+print("----------------------------------")
+print("\t\tΔ2")
+delta2_real=x.array([[aar_real[0][0],aar_real[0][2]],[aar_real[1][0],aar_real[1][2]]])
+print(delta2_real)
+print("\r")
+delta2_imag=x.array([[aar_imag[0][0],aar_imag[0][2]],[aar_imag[1][0],aar_imag[1][2]]])
+print(delta2_imag)
+print("\r")
+det_real = aar_real[0][0]*aar_real[1][2]  +  aar_imag[0][2]*aar_imag[1][0]  -  aar_real[0][2]*aar_real[1][0]  -  aar_imag[0][0]*aar_imag[1][2]
+det_imag = aar_real[0][0]*aar_imag[1][2]  +  aar_imag[0][0]*aar_real[1][2]  -  aar_real[1][0]*aar_imag[0][2]  -  aar_imag[1][0]* aar_real[0][2]
+print(det_real,"+","j",det_imag,"is the determinant of the Δ2 Matrix.")
+print("Δ2 Mag : ",math.sqrt((det_imag)**2+(det_real)**2))
+print("Δ2 Phase : ",math.degrees(math.atan(det_imag/det_real)),"°")
+print("----------------------------------")
